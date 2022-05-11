@@ -8,9 +8,9 @@ const Image = require('./models/image');
 
   await Project.deleteMany({});
   const projects = await Project.create([
-    { name: 'Foodtrucks', sortOrder: 10 },
-    { name: 'Coffee', sortOrder: 20 },
-    { name: 'Rocks', sortOrder: 30 },
+    { name: 'Foodtrucks' },
+    { name: 'Coffee' },
+    { name: 'Rocks' },
   ]);
 
   await Image.deleteMany({});
