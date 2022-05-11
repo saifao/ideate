@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getAll from '../../utilities/images-api'
+import * as imagesAPI from '../../utilities/images-api'
 import Image from '../../components/Image/Image'
 
 export default function ImageGrid() {
@@ -8,7 +8,7 @@ export default function ImageGrid() {
 
     useEffect(function () {
         async function getImages() {
-            const getImagesAPI = await getAll();
+            const getImagesAPI = await imagesAPI.getAll();
             setImages(getImagesAPI)
         }
         getImages()

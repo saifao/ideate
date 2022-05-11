@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import getAll from '../../utilities/projects-api'
 import * as projectsAPI from '../../utilities/projects-api'
-import Project from '../../components/Project/Project'
+import ProjectList from '../../components/ProjectList/ProjectList'
+import CreateNewProject from '../../components/CreateNewProject/CreateNewProject';
+import ActiveProjectImages from '../../components/ActvieProjectImages/ActiveProjectImages'
 
 export default function ProjectPage() {
 
     const [projects, setProjects] = useState([])
     const [newProject, setNewProject] = useState('')
+    const [images, setImages] = useState([])
 
     useEffect(function () {
         async function getProjects() {
@@ -17,19 +20,8 @@ export default function ProjectPage() {
         getProjects()
     }, [])
 
-    const displayProjects = projects.map(project =>
-        <Project projectName={project.name} />
-    )
-
-    function handleChange(evt) {
-        const newProjectData = { ...newProject, [evt.target.name]: evt.target.value };
-        setNewProject(newProjectData);
-
-    }
-
     async function handleSubmit(evt) {
         evt.preventDefault()
-        console.log(newProject)
         try {
             const newProjectSet = await projectsAPI.create(newProject)
             setProjects(newProjectSet)
@@ -40,16 +32,15 @@ export default function ProjectPage() {
     }
 
     return (
-        <div>
-            {displayProjects}
-            <hr />
-            <h1>Create New Project</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Name</label>
-                <input type="text" name="name" onChange={handleChange} required />
-                <button type="submit">CREATE</button>
-            </form>
-        </div>
+        <main>
+            <aside>
+                <ProjectList projects={projects} setImages={setImages} />
+                <hr />
+                <h1>Create New Project</h1>
+                <CreateNewProject handleSubmit={handleSubmit} newProject={newProject} setNewProject={setNewProject} />
+            </aside>
+            <ActiveProjectImages images={images} />
+        </main>
     )
 
 

@@ -18,8 +18,6 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     const res = await fetch(url, options);
     // res.ok will be false if the status code set to 4xx in the controller action
     const data = await res.json();
-    console.log(data)
     if (res.ok) return data;
-
     throw new Error('Bad Request');
 }
