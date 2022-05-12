@@ -20,7 +20,7 @@ const Image = require('./models/image');
     { url: 'https://i.imgur.com/hREgzD9.jpeg', project: projects[1] },
     { url: 'https://i.imgur.com/ISkiwgl.jpeg', project: projects[1] },
     { url: 'https://i.imgur.com/TTpKcKD.jpeg', project: projects[2] },
-    { url: 'https://i.imgur.com/PFNY72x.jpeg', project: projects[2] },
+    { url: 'https://i.imgur.com/PFNY72x.jpeg', project: null },
   ]);
 
   console.log(images)

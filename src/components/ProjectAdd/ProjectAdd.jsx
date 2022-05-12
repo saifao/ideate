@@ -1,21 +1,19 @@
 import './ProjectAdd.css'
-import { Component } from "react";
+import ProjectAddListItem from '../ProjectAddListItem/ProjectAddListItem'
+import CurrentProject from '../CurrentProject/CurrentProject'
 
-export default class ProjectAdd extends Component {
+export default function ProjectAdd({ popProject, projects, toggle, handleAddProject, removeProject, activeImageId }) {
 
-    handleClick = () => {
-        this.props.toggle()
-    }
-
-    render() {
-        return (
-            <div className='modal'>
-                <div className='modal_content'>
-                    <span onClick={this.handleClick}>&times;</span>
-                    <p>I'm A Pop Up!!!</p>
-                </div>
+    return (
+        <div className='modal'>
+            <div className='modal_content'>
+                <span onClick={() => toggle()}>&times;</span>
+                {popProject.name ? <CurrentProject popProject={popProject} removeProject={removeProject} activeImageId={activeImageId} />
+                    :
+                    projects.map(project => <ProjectAddListItem key={project._id} project={project} handleAddProject={handleAddProject} />)
+                }
             </div>
+        </div>
 
-        )
-    }
+    )
 }

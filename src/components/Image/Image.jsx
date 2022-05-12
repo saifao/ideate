@@ -1,20 +1,12 @@
 import './Image.css'
-import { useState } from 'react'
-import ProjectAdd from '../ProjectAdd/ProjectAdd'
 
-export default function Image({ projectName, imageUrl }) {
-
-    const [pop, setPop] = useState(false)
-
-    function toggle() {
-        setPop(!pop)
-    }
+export default function Image({ toggle, projectName, imageUrl, imageIdx }) {
 
     return (
         <div>
-            <img src={imageUrl} alt="none" onClick={toggle}></img>
-            {pop ? <ProjectAdd toggle={toggle} /> : null}
+            <img src={imageUrl} alt="none"></img>
             <h3>{projectName}</h3>
+            <button onClick={() => toggle(imageIdx)}>Click to Toggle</button>
         </div>
     )
 }

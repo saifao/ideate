@@ -1,7 +1,6 @@
 const Image = require('../../models/image')
-const Project = require('../../models/project')
 
-module.exports = { getAll, getProjectImages }
+module.exports = { getAll, getProjectImages, handleAddProject, removeProject }
 
 async function getAll(req, res) {
     const images = await Image.find({}).populate('project').exec()
@@ -9,7 +8,18 @@ async function getAll(req, res) {
 }
 
 async function getProjectImages(req, res) {
-    console.log(req.params.projectId)
     const images = await Image.find({ project: req.params.projectId })
+    res.json(images)
+}
+
+async function handleAddProject(req, res) {
+    const query = { _id: req.body.imageId }
+    const images = await Image.findOneAndUpdate(query, { project: req.body.projectId })
+    res.json(images)
+}
+
+async function removeProject(req, res) {
+    const query = { _id: req.body.activeImageId }
+    const images = await Image.findOneAndUpdate(query, { project: null })
     res.json(images)
 }

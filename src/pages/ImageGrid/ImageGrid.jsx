@@ -1,31 +1,63 @@
 import { useState, useEffect } from "react";
 import * as imagesAPI from '../../utilities/images-api'
+import * as projectsAPI from '../../utilities/projects-api'
 import Image from '../../components/Image/Image'
+import ProjectAdd from '../../components/ProjectAdd/ProjectAdd'
 
 export default function ImageGrid() {
 
     const [images, setImages] = useState([])
+    const [projects, setProjects] = useState([])
+    const [pop, setPop] = useState(false)
+    const [popProject, setPopProject] = useState('')
+    const [activeImageId, setActiveImageId] = useState(null)
+
+    async function getData() {
+        const getImagesAPI = await imagesAPI.getAll();
+        const getProjectsAPI = await projectsAPI.getAll();
+        for (let i = 0; i < getImagesAPI.length; i++) {
+            if (!getImagesAPI[i].project) {
+                getImagesAPI[i].project = { name: null }
+            }
+        }
+        setImages(getImagesAPI)
+        setProjects(getProjectsAPI)
+
+    }
 
     useEffect(function () {
-        async function getImages() {
-            const getImagesAPI = await imagesAPI.getAll();
-            for (let i = 0; i < getImagesAPI.length; i++) {
-                if (!getImagesAPI[i].project) {
-                    getImagesAPI[i].project = { name: '' }
-                    console.log(getImagesAPI[i])
-                }
-            }
-            setImages(getImagesAPI)
-        }
-        getImages()
+        getData()
     }, [])
 
-    const displayImages = images.map(image =>
-        <Image key={image._id} projectName={image.project.name} imageUrl={image.url} />
+    function toggle(imageIdx) {
+        if (imageIdx || imageIdx === 0) {
+            setPopProject(images[imageIdx].project)
+            setActiveImageId(images[imageIdx]._id)
+        }
+        setPop(!pop)
+    }
+
+    async function handleAddProject(projectId) {
+        const newImageProject = await imagesAPI.handleAddProject(activeImageId, projectId)
+        getData()
+        toggle()
+    }
+
+    async function removeProject(activeImageId) {
+        const removeProject = await imagesAPI.removeProject(activeImageId)
+        getData()
+        toggle()
+    }
+
+    const displayImages = images.map((image, idx) =>
+        <div>
+            <Image key={image._id} toggle={toggle} projectName={image.project.name} imageUrl={image.url} imageIdx={idx} />
+        </div>
     )
 
     return (
         <div>
+            {pop ? <ProjectAdd key={activeImageId} popProject={popProject} projects={projects} toggle={toggle} handleAddProject={handleAddProject} removeProject={removeProject} activeImageId={activeImageId} /> : null}
             {displayImages}
         </div>
     );
