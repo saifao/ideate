@@ -9,13 +9,19 @@ export default function ImageGrid() {
     useEffect(function () {
         async function getImages() {
             const getImagesAPI = await imagesAPI.getAll();
+            for (let i = 0; i < getImagesAPI.length; i++) {
+                if (!getImagesAPI[i].project) {
+                    getImagesAPI[i].project = { name: '' }
+                    console.log(getImagesAPI[i])
+                }
+            }
             setImages(getImagesAPI)
         }
         getImages()
     }, [])
 
     const displayImages = images.map(image =>
-        <Image key={image._id} imageUrl={image.url} />
+        <Image key={image._id} projectName={image.project.name} imageUrl={image.url} />
     )
 
     return (
@@ -25,4 +31,3 @@ export default function ImageGrid() {
     );
 
 }
-
