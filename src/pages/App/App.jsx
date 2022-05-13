@@ -11,9 +11,10 @@ import ProjectsPage from '../ProjectsPage/ProjectsPage';
 
 export default function App() {
     const [user, setUser] = useState(getUser())
+
     return (
         <main>
-            <NavBar />
+            <NavBar user={user} />
             {user ?
                 <Routes>
                     <Route path="/" element={<ImageGrid />} />

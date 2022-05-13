@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const imagesCtrl = require('../../controllers/api/images')
+const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
-router.get('/', imagesCtrl.getAll)
-router.get('/:projectId', imagesCtrl.getProjectImages)
-router.put('/addProject', imagesCtrl.handleAddProject)
-router.put('/removeProject', imagesCtrl.removeProject)
+router.get('/', ensureLoggedIn, imagesCtrl.getAll)
+router.get('/:projectId', ensureLoggedIn, imagesCtrl.getProjectImages)
+router.put('/addProject', ensureLoggedIn, imagesCtrl.handleAddProject)
+router.put('/removeProject', ensureLoggedIn, imagesCtrl.removeProject)
 
 module.exports = router;

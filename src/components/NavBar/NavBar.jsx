@@ -15,6 +15,8 @@ export default function NavBar({ user, setUser }) {
 
             <Link to="/projects">Project</Link>
             &nbsp; | &nbsp;
+            <Link to="/">Home</Link>
+            &nbsp; | &nbsp;
             &nbsp;<span>Welcome {user ? user.name : ''}</span>
             &nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
         </nav>
