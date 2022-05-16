@@ -19,17 +19,17 @@ Trello board used for the the app's planning can be accessed here!
 The Ideate app comes with some neat capabilities!
 - Users can create a Project
 
-- Users can add an Image to a Project
-!(public/add-image-project)
+- Users can add an Image to a Project (or Cancel)
+![](public/add-image-project)
 
-- Users can remove a Project from an Image and subsequently add a different Project
-!(public/remove.png)
+- Users can remove a Project from an Image and subsequently add a different Project (or Cancel)
+![](public/remove.png)
 
 - Users can view a list of images arranged in a clean and interactive layout
-!(public/image-grid.png)
+![](public/image-grid.png)
 
 - Users can view a list of available projects and click on each to view its associate images
-!(public/projects-view.png)
+![](public/projects-view.png)
 
 - Token-based authentication and basic authorization
 
