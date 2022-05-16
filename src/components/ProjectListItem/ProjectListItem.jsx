@@ -1,4 +1,5 @@
 import * as imagesAPI from '../../utilities/images-api'
+import './ProjectListItem.css'
 
 export default function Project({ projectId, projectName, setImages }) {
 

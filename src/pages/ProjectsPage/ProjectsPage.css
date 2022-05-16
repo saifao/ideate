@@ -1,0 +1,18 @@
+div {
+    display: flex;
+}
+
+h3 {
+    text-align: right;
+}
+
+.project-list {
+    width: 350px;
+}
+
+.vl {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-left: 6px solid;
+    height: 500px;
+}

@@ -1,3 +1,5 @@
+import './CreateNewProject.css'
+
 export default function CreateNewProject({ handleSubmit, newProject, setNewProject }) {
 
     function handleChange(evt) {

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import getAll from '../../utilities/projects-api'
 import * as projectsAPI from '../../utilities/projects-api'
 import ProjectList from '../../components/ProjectList/ProjectList'
 import CreateNewProject from '../../components/CreateNewProject/CreateNewProject';
 import ActiveProjectImages from '../../components/ActvieProjectImages/ActiveProjectImages'
+// import { toggle, handleAddProject, removeProject } from '../ImageGrid/ImageGrid'
+import './ProjectsPage.css'
 
 export default function ProjectPage() {
 
@@ -32,16 +32,15 @@ export default function ProjectPage() {
     }
 
     return (
-        <main>
-            <aside>
-                <ProjectList projects={projects} setImages={setImages} />
-                <hr />
-                <h1>Create New Project</h1>
+        <div>
+            <span className="project-list">
+                <h3>Create New Project</h3>
                 <CreateNewProject handleSubmit={handleSubmit} newProject={newProject} setNewProject={setNewProject} />
-            </aside>
-            <ActiveProjectImages images={images} />
-        </main>
+                <ProjectList projects={projects} setImages={setImages} />
+            </span>
+            <span className="vl"></span>
+            <span><ActiveProjectImages images={images} /></span>
+        </div>
     )
-
 
 }

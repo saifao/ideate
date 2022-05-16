@@ -1,9 +1,9 @@
-import Image from '../../components/Image/Image'
+import ProjectImage from '../../components/ProjectImage/ProjectImage'
 
 export default function ActiveProjectImages({ images }) {
 
     const displayImages = images.map(image =>
-        <Image key={image._id} imageUrl={image.url} />
+        <ProjectImage key={image._id} imageUrl={image.url} />
     )
 
     return (

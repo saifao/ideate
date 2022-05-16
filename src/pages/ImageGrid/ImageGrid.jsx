@@ -3,6 +3,7 @@ import * as imagesAPI from '../../utilities/images-api'
 import * as projectsAPI from '../../utilities/projects-api'
 import Image from '../../components/Image/Image'
 import ProjectAdd from '../../components/ProjectAdd/ProjectAdd'
+import './ImageGrid.css'
 
 export default function ImageGrid() {
 
@@ -50,15 +51,19 @@ export default function ImageGrid() {
     }
 
     const displayImages = images.map((image, idx) =>
-        <div>
-            <Image key={image._id} toggle={toggle} projectName={image.project.name} imageUrl={image.url} imageIdx={idx} />
-        </div>
+        <span className="img">
+            <span className="inner-img">
+                <Image key={image._id} toggle={toggle} projectName={image.project.name} imageUrl={image.url} imageIdx={idx} />
+            </span>
+        </span>
     )
 
     return (
-        <div>
+        <div className="container">
             {pop ? <ProjectAdd key={activeImageId} popProject={popProject} projects={projects} toggle={toggle} handleAddProject={handleAddProject} removeProject={removeProject} activeImageId={activeImageId} /> : null}
-            {displayImages}
+            <div className="img-grid">
+                {displayImages}
+            </div>
         </div>
     );
 

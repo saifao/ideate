@@ -4,9 +4,10 @@ export default function Image({ toggle, projectName, imageUrl, imageIdx }) {
 
     return (
         <div>
-            <img src={imageUrl} alt="none"></img>
-            <h3>{projectName}</h3>
-            <button onClick={() => toggle(imageIdx)}>Click to Toggle</button>
+            <img className="resize-h resize-w" src={imageUrl} alt="none"></img>
+            <div className="image-info"><span className="image-info-name">{projectName}</span>
+                <button className="add-project" onClick={() => toggle(imageIdx)}></button>
+            </div>
         </div>
     )
 }

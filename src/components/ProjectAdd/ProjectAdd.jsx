@@ -7,7 +7,8 @@ export default function ProjectAdd({ popProject, projects, toggle, handleAddProj
     return (
         <div className='modal'>
             <div className='modal_content'>
-                <span onClick={() => toggle()}>&times;</span>
+                <span className="quit" onClick={() => toggle()}>Cancel</span>
+                <hr />
                 {popProject.name ? <CurrentProject popProject={popProject} removeProject={removeProject} activeImageId={activeImageId} />
                     :
                     projects.map(project => <ProjectAddListItem key={project._id} project={project} handleAddProject={handleAddProject} />)
