@@ -3,11 +3,15 @@ import ProjectImage from '../../components/ProjectImage/ProjectImage'
 export default function ActiveProjectImages({ images }) {
 
     const displayImages = images.map(image =>
-        <ProjectImage key={image._id} imageUrl={image.url} />
+        <span className="img">
+            <span className="inner-img">
+                <ProjectImage key={image._id} imageUrl={image.url} />
+            </span>
+        </span>
     )
 
     return (
-        <div>
+        <div className="img-grid">
             {displayImages}
         </div>
     );
