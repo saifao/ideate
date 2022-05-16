@@ -22,19 +22,23 @@ The Ideate app comes with some neat capabilities!
 
 - Users can add an Image to a Project (or Cancel)
 
-![](public/add-image-project)
+![](public/add-image-project.png)
+
 
 - Users can remove a Project from an Image and subsequently add a different Project (or Cancel)
 
 ![](public/remove.png)
 
+
 - Users can view a list of images arranged in a clean and interactive layout
 
 ![](public/image-grid.png)
 
+
 - Users can view a list of available projects and click on each to view its associate images
 
 ![](public/projects-view.png)
+
 
 - Token-based authentication and basic authorization
 
