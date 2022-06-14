@@ -7,5 +7,6 @@ router.get('/', ensureLoggedIn, imagesCtrl.getAll)
 router.get('/:projectId', ensureLoggedIn, imagesCtrl.getProjectImages)
 router.put('/addProject', ensureLoggedIn, imagesCtrl.handleAddProject)
 router.put('/removeProject', ensureLoggedIn, imagesCtrl.removeProject)
+router.post('/create', ensureLoggedIn, imagesCtrl.create)
 
 module.exports = router;

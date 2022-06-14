@@ -1,0 +1,13 @@
+.img {
+    width: 350px;
+    height: 450px;
+    border: solid lightblue;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner-img {
+    margin-top: 10px;
+
+}

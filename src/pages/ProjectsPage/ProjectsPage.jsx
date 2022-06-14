@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as projectsAPI from '../../utilities/projects-api'
 import ProjectList from '../../components/ProjectList/ProjectList'
 import CreateNewProject from '../../components/CreateNewProject/CreateNewProject';
-import ActiveProjectImages from '../../components/ActvieProjectImages/ActiveProjectImages'
+import ActiveProjectImages from '../../components/ActiveProjectImages/ActiveProjectImages'
 // import { toggle, handleAddProject, removeProject } from '../ImageGrid/ImageGrid'
 import './ProjectsPage.css'
 

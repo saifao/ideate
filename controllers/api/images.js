@@ -1,6 +1,6 @@
 const Image = require('../../models/image')
 
-module.exports = { getAll, getProjectImages, handleAddProject, removeProject }
+module.exports = { getAll, getProjectImages, handleAddProject, removeProject, create }
 
 async function getAll(req, res) {
     const images = await Image.find({}).populate('project').exec()
@@ -22,4 +22,16 @@ async function removeProject(req, res) {
     const query = { _id: req.body.activeImageId }
     const images = await Image.findOneAndUpdate(query, { project: null })
     res.json(images)
+}
+
+async function create(req, res) {
+    const newImage = {
+        url: req.body.imageUrl
+    }
+
+    try {
+        await Image.create(newImage)
+    } catch (e) {
+        console.log("Did not save. Error message: ", e)
+    }
 }
