@@ -1,5 +1,5 @@
 import './ProjectAdd.css'
-import ProjectAddListItem from '../ProjectAddListItem/ProjectAddListItem'
+import ProjectAddList from '../ProjectAddList/ProjectAddList'
 import CurrentProject from '../CurrentProject/CurrentProject'
 
 export default function ProjectAdd({ popProject, projects, toggle, handleAddProject, removeProject, activeImageId }) {
@@ -8,11 +8,9 @@ export default function ProjectAdd({ popProject, projects, toggle, handleAddProj
         <div className='modal'>
             <div className='modal_content'>
                 <div className="quit" onClick={() => toggle()}>Cancel</div>
-                <hr />
-                <br />
                 {popProject.name ? <CurrentProject popProject={popProject} removeProject={removeProject} activeImageId={activeImageId} />
                     :
-                    projects.map(project => <ProjectAddListItem key={project._id} project={project} handleAddProject={handleAddProject} />)
+                    <ProjectAddList projects={projects} handleAddProject={handleAddProject} />
                 }
             </div>
         </div>

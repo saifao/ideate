@@ -1,6 +1,13 @@
 const Image = require('../../models/image')
 
-module.exports = { getAll, getProjectImages, handleAddProject, removeProject, create }
+module.exports = {
+    getAll,
+    getProjectImages,
+    handleAddProject,
+    removeProject,
+    create,
+    deleteImage
+}
 
 async function getAll(req, res) {
     const images = await Image.find({}).populate('project').exec()
@@ -34,4 +41,13 @@ async function create(req, res) {
     } catch (e) {
         console.log("Did not save. Error message: ", e)
     }
+}
+
+async function deleteImage(req, res) {
+    try {
+        await Image.deleteOne({ _id: req.body.activeImageId })
+    } catch (e) {
+        console.log("Failed to delete image. Error message: ", e)
+    }
+
 }

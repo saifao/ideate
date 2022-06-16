@@ -21,3 +21,7 @@ export function removeProject(activeImageId) {
 export function saveImage(imageUrl) {
     return sendRequest(`${BASE_URL}/create`, 'POST', { imageUrl })
 }
+
+export function deleteImage(activeImageId) {
+    return sendRequest(`${BASE_URL}/delete`, 'DELETE', { activeImageId })
+}

@@ -33,3 +33,10 @@ img {
     width: 30px;
     height: 30px;
 }
+
+.delete-image {
+    background: url(./icon-delete.png) no-repeat;
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+}
