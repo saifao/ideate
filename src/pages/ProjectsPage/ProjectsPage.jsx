@@ -32,14 +32,14 @@ export default function ProjectPage() {
     }
 
     return (
-        <div>
+        <div className='project-container'>
             <span className="project-list">
                 <h3>Create New Project</h3>
                 <CreateNewProject handleSubmit={handleSubmit} newProject={newProject} setNewProject={setNewProject} />
                 <ProjectList projects={projects} setImages={setImages} />
             </span>
             <span className="vl"></span>
-            <span><ActiveProjectImages images={images} /></span>
+            <span className='active-projects'><ActiveProjectImages images={images} /></span>
         </div>
     )
 

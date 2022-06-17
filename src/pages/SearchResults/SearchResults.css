@@ -26,3 +26,13 @@
     margin-top: 10px;
     width: 100%;
 }
+
+@media (max-width: 777px) {
+    .load-btn {
+        font-size: 4vw;
+    }
+
+    .load-btn-spacing {
+        display: none;
+    }
+}

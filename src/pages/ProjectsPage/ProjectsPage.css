@@ -1,18 +1,32 @@
-div {
+.project-container {
     display: flex;
+    max-width: 650px;
 }
+
 
 h3 {
     text-align: right;
 }
 
 .project-list {
-    width: 350px;
+    /* width: 350px; */
+    flex: 1 1;
+    text-align: right;
 }
 
 .vl {
     margin-left: 10px;
     margin-right: 10px;
     border-left: 6px solid;
-    height: 500px;
+    max-height: 700px;
+}
+
+.active-projects {
+    flex: 1 1;
+}
+
+@media (max-width: 777px) {
+    .project-container {
+        flex-direction: column;
+    }
 }

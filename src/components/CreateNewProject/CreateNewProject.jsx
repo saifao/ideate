@@ -9,9 +9,11 @@ export default function CreateNewProject({ handleSubmit, newProject, setNewProje
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" onChange={handleChange} required />
+        <form className='project-form' onSubmit={handleSubmit}>
+            <div className='project-entry'>
+                <label className='project-label'>Name</label>
+                <input className='project-name' type="text" name="name" onChange={handleChange} required />
+            </div>
             <button type="submit">CREATE</button>
         </form>
     )

@@ -42,7 +42,7 @@ export default function SearchResults({ results, submitSearch }) {
             </div>
             <br />
             <div>
-                <button onClick={() => handlePrev()}>Load Previous 12 Results</button><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><button onClick={() => handleNext()}>Load Next 12 Results</button>
+                <button className='load-btn' onClick={() => handlePrev()}>Load Previous 12 Results</button><span className='load-btn-spacing'>&nbsp;&nbsp;&nbsp;&nbsp;</span><button className='load-btn' onClick={() => handleNext()}>Load Next 12 Results</button>
             </div>
         </div>
 

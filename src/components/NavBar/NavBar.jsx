@@ -34,7 +34,7 @@ export default function NavBar({ user, setUser, setSearchState, submitSearch }) 
                 </div>
             </div>
             <form className='search-bar' onSubmit={handleSearch}>
-                <input type="text" placeholder="Search..." value={searchString} onChange={(e) => setSearchString(e.target.value)} />
+                <input className='search-input' type="text" placeholder="Search..." value={searchString} onChange={(e) => setSearchString(e.target.value)} />
             </form>
         </div>
 

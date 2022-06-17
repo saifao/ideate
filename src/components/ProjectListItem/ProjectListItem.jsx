@@ -9,6 +9,6 @@ export default function Project({ projectId, projectName, setImages }) {
     }
 
     return (
-        <h1 onClick={getProjectImages}> {projectName}</ h1>
+        <div className='project-list-name' onClick={getProjectImages}> {projectName}</ div>
     )
 } 

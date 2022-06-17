@@ -1,11 +1,13 @@
 .navbar {
+    display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
     background-color: #ffffff;
 }
 
 .navbar a {
     float: left;
-    font-size: 2.5vh;
+    font-size: 2vw;
     font-weight: 700;
     color: #333;
     text-align: center;
@@ -52,4 +54,31 @@
 
 .search-bar {
     border: none;
+    max-width: 250px;
+}
+
+.search-input {
+    min-width: 300px;
+    margin: 5px 0px;
+}
+
+@media (max-width: 777px) {
+    .navbar {
+        margin-left: 15px;
+    }
+
+    .search-bar {
+        max-width: 400px;
+    }
+
+    .search-input {
+        min-width: 300px;
+        margin-left: 5px;
+        font-size: 4vw;
+    }
+
+    .navbar a {
+        font-size: 4vw;
+        padding: 4px 6px;
+    }
 }

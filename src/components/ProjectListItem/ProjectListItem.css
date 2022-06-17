@@ -1,5 +1,4 @@
-h1 {
-    width: 340px;
-    margin: 10px 0px;
-    text-align: right;
+.project-list-name {
+    width: 100%;
+    font-size: 3vw;
 }
