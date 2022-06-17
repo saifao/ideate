@@ -1,4 +1,4 @@
-const BASE_URL = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?pageSize=10&autoCorrect=true&safeSearch=true'
+const BASE_URL = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?pageSize=12&autoCorrect=true&safeSearch=true'
 
 export function imageSearch(searchString, pageNumber) {
     return makeRequest(searchString, pageNumber);
@@ -12,7 +12,7 @@ async function makeRequest(searchString, pageNumber) {
             'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
         }
     }
-    console.log(searchString, pageNumber)
+
     const res = await fetch(`${BASE_URL}&q=${searchString}&pageNumber=${pageNumber}`, options);
     const data = await res.json();
     if (res.ok) return data.value;

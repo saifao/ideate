@@ -1,8 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './SearchImage.css'
 
 
-export default function SearchImage({ imageUrl, title, saveImage }) {
+export default function SearchImage({ imageUrl, title, saveImage, resetIcon }) {
+
+    useEffect(function resetIcons() {
+        setSaveIcon("add-image")
+    }, [resetIcon])
 
     const [saveIcon, setSaveIcon] = useState("add-image")
 

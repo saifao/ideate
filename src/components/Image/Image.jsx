@@ -4,7 +4,7 @@ export default function Image({ toggle, toggleDelImg, projectName, imageUrl, ima
 
     return (
         <div className="image-container">
-            <img className="resize-h resize-w" src={imageUrl} alt="none"></img>
+            <img className="pic resize-h resize-w" src={imageUrl} alt="none"></img>
             <div className="image-info">
                 <span className="image-info-name">{projectName}</span>
                 <span>

@@ -1,14 +1,11 @@
 .image-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-img {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+.pic {
+    align-self: center;
 }
 
 .resize-h {
@@ -22,8 +19,6 @@ img {
 }
 
 .image-info {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
     display: flex;
     justify-content: space-between;
     align-items: center;

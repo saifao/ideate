@@ -1,14 +1,11 @@
 .si-image-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
 .si-pic {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    align-self: center;
 }
 
 .si-resize-h {
@@ -22,8 +19,7 @@
 }
 
 .si-image-info {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,6 +28,7 @@
 
 .si-image-info-name {
     margin: 0px 20px;
+    max-width: 255px;
 }
 
 .add-image {
