@@ -5,7 +5,7 @@ import * as userService from '../../utilities/users-service';
 
 import './NavBar.css'
 
-export default function NavBar({ user, setUser, submitSearch }) {
+export default function NavBar({ user, setUser, setSearchState, submitSearch }) {
 
     const [searchString, setSearchString] = useState('')
 
@@ -18,22 +18,22 @@ export default function NavBar({ user, setUser, submitSearch }) {
 
     function handleSearch(evt) {
         evt.preventDefault();
+        setSearchState(searchString)
         submitSearch(searchString)
     }
 
     return (
-        <div class="navbar">
+        <div className="navbar">
             <Link to="/projects">Project</Link>
             <Link to="/">Home</Link>
-            <div class="dropdown">
-                <Link to="" class="dropitems">Account</Link>
-                <div class="dropdown-content">
+            <div className="dropdown">
+                <Link to="" className="dropitems">Account</Link>
+                <div className="dropdown-content">
                     <Link to="">Welcome {user ? user.name : ''}</Link>
                     <Link to="" onClick={handleLogOut}>Log Out</Link>
                 </div>
             </div>
-            <Link to="">Search</Link>
-            <form onSubmit={handleSearch}>
+            <form className='search-bar' onSubmit={handleSearch}>
                 <input type="text" placeholder="Search..." value={searchString} onChange={(e) => setSearchString(e.target.value)} />
             </form>
         </div>

@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
     z-index: 1;
-    width: 100%;
+    width: 400px;
     height: 100%;
 }
 
@@ -10,15 +10,17 @@
     position: absolute;
     top: 20%;
     left: 30%;
-    width: 40%;
+    width: 100%;
     padding: 20px 0px;
     border-radius: 15px;
     border: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .quit {
+    width: 100%;
     padding-left: 20px;
 }
 

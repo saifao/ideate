@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 4fr 1fr;
+    justify-items: center;
+    width: 100%;
 }
 
 img {
@@ -25,6 +27,11 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+}
+
+.image-info-name {
+    margin: 0px 20px;
 }
 
 .add-project {
@@ -32,11 +39,14 @@ img {
     background-size: 30px;
     width: 30px;
     height: 30px;
+    border: none;
 }
 
 .delete-image {
     background: url(./icon-delete.png) no-repeat;
-    background-size: 30px;
-    width: 30px;
-    height: 30px;
+    background-size: 34px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    margin-right: 20px;
 }

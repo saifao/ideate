@@ -1,10 +1,10 @@
-const BASE_URL = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?pageNumber=1&pageSize=10&autoCorrect=true&safeSearch=true&q='
+const BASE_URL = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?pageSize=10&autoCorrect=true&safeSearch=true'
 
-export function imageSearch(searchString) {
-    return makeRequest(searchString);
+export function imageSearch(searchString, pageNumber) {
+    return makeRequest(searchString, pageNumber);
 }
 
-async function makeRequest(searchString) {
+async function makeRequest(searchString, pageNumber) {
     const options = {
         method: 'GET',
         headers: {
@@ -12,8 +12,8 @@ async function makeRequest(searchString) {
             'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
         }
     }
-
-    const res = await fetch(`${BASE_URL}${searchString}}`, options);
+    console.log(searchString, pageNumber)
+    const res = await fetch(`${BASE_URL}&q=${searchString}&pageNumber=${pageNumber}`, options);
     const data = await res.json();
     if (res.ok) return data.value;
     throw new Error('Bad Search Request');
