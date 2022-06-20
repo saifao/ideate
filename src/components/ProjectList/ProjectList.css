@@ -1,0 +1,30 @@
+.mobile-projects {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mobile-projects:hover {
+    cursor: pointer;
+}
+
+.widescreen-projects {
+    width: 100%;
+}
+
+.widescreen-projects:hover {
+    cursor: pointer;
+}
+
+.img-grid {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+}

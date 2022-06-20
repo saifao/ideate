@@ -11,6 +11,7 @@ export default function ProjectPage() {
     const [projects, setProjects] = useState([])
     const [newProject, setNewProject] = useState('')
     const [images, setImages] = useState([])
+    const [mobileView, setMobileView] = useState(false)
 
     useEffect(function () {
         async function getProjects() {
@@ -19,6 +20,16 @@ export default function ProjectPage() {
         }
         getProjects()
     }, [])
+
+    useEffect(function () {
+        const mobile = window.matchMedia("(max-width: 777px)");
+        if (mobile.matches) {
+            setMobileView(true)
+        } else {
+            setMobileView(false)
+        }
+    }, [])
+
 
     async function handleSubmit(evt) {
         evt.preventDefault()
@@ -36,7 +47,7 @@ export default function ProjectPage() {
             <span className="project-list">
                 <h3>Create New Project</h3>
                 <CreateNewProject handleSubmit={handleSubmit} newProject={newProject} setNewProject={setNewProject} />
-                <ProjectList projects={projects} setImages={setImages} />
+                <ProjectList projects={projects} setImages={setImages} mobileView={mobileView} />
             </span>
             <span className="vl"></span>
             <span className='active-projects'><ActiveProjectImages images={images} /></span>

@@ -1,7 +1,9 @@
 import * as imagesAPI from '../../utilities/images-api'
+import ProjectListItemWide from '../ProjectListItemWide/ProjectListItemWide'
+import ProjectListItemMob from '../ProjectListItemMob/ProjectListItemMob'
 import './ProjectListItem.css'
 
-export default function Project({ projectId, projectName, setImages }) {
+export default function Project({ projectId, projectName, setImages, mobileView }) {
 
     async function getProjectImages() {
         const getProjectImagesAPI = await imagesAPI.getProjectImages(projectId);
@@ -9,6 +11,8 @@ export default function Project({ projectId, projectName, setImages }) {
     }
 
     return (
-        <div className='project-list-name' onClick={getProjectImages}> {projectName}</ div>
+        <>
+            {mobileView ? <ProjectListItemMob getProjectImages={getProjectImages} projectName={projectName} /> : <ProjectListItemWide getProjectImages={getProjectImages} projectName={projectName} />}
+        </>
     )
 } 

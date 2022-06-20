@@ -1,0 +1,22 @@
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    background: url(./camera.png) no-repeat;
+    background-size: 45px;
+    width: 45px;
+    height: 45px;
+    border: none;
+}
+
+.default-credentials {
+    font-style: italic;
+}

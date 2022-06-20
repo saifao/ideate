@@ -12,7 +12,7 @@ export default function CreateNewProject({ handleSubmit, newProject, setNewProje
         <form className='project-form' onSubmit={handleSubmit}>
             <div className='project-entry'>
                 <label className='project-label'>Name</label>
-                <input className='project-name' type="text" name="name" onChange={handleChange} required />
+                <input className='create-project-name' type="text" name="name" onChange={handleChange} required />
             </div>
             <button type="submit">CREATE</button>
         </form>

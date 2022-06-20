@@ -1,0 +1,41 @@
+.form-container {
+    width: 50vw;
+}
+
+.form-entity {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-line {
+    display: flex;
+}
+
+.form-line>label {
+    width: 70px;
+}
+
+@media (max-width: 777px) {
+
+    .form-container {
+        width: 100%;
+    }
+
+    .form-entity {
+        width: 100%;
+    }
+
+    .form-line {
+        width: 100%;
+    }
+
+    .form-line>input {
+        width: 100%;
+    }
+
+    .form-line>label,
+    button {
+        font-size: 1.5vh;
+    }
+}

@@ -14,10 +14,11 @@ import SearchResults from '../SearchResults/SearchResults';
 export default function App() {
     const [user, setUser] = useState(getUser())
     const [searchState, setSearchState] = useState('')
+    const [page, setPage] = useState(1)
     const [imageResults, setImageResults] = useState([])
     const navigate = useNavigate();
 
-    async function submitSearch(searchString = searchState, pageNumber = 1) {
+    async function submitSearch(searchString = searchState, pageNumber = page) {
         const results = await searchAPI.imageSearch(searchString, pageNumber);
         setImageResults(results)
         navigate("/searchResults")
@@ -25,12 +26,12 @@ export default function App() {
 
     return (
         <main>
-            <NavBar user={user} setUser={setUser} setSearchState={setSearchState} submitSearch={submitSearch} />
+            <NavBar user={user} setUser={setUser} setSearchState={setSearchState} submitSearch={submitSearch} setPage={setPage} />
             {user ?
                 <Routes>
                     <Route path="/" element={<ImageGrid />} />
                     <Route path="/projects" element={<ProjectsPage />} />
-                    <Route path="/searchResults" element={<SearchResults results={imageResults} submitSearch={submitSearch} />} />
+                    <Route path="/searchResults" element={<SearchResults results={imageResults} submitSearch={submitSearch} page={page} setPage={setPage} />} />
                 </Routes>
                 :
                 <AuthPage setUser={setUser} />

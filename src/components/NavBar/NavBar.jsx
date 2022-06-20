@@ -5,7 +5,7 @@ import * as userService from '../../utilities/users-service';
 
 import './NavBar.css'
 
-export default function NavBar({ user, setUser, setSearchState, submitSearch }) {
+export default function NavBar({ user, setUser, setSearchState, submitSearch, setPage }) {
 
     const [searchString, setSearchString] = useState('')
 
@@ -16,10 +16,11 @@ export default function NavBar({ user, setUser, setSearchState, submitSearch }) 
         setUser(null);
     }
 
-    function handleSearch(evt) {
+    async function handleSearch(evt) {
         evt.preventDefault();
+        setPage(2)
         setSearchState(searchString)
-        submitSearch(searchString)
+        submitSearch(searchString, 1)
     }
 
     return (

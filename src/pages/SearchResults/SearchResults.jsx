@@ -3,9 +3,9 @@ import * as imagesAPI from '../../utilities/images-api'
 import { useState } from 'react';
 import './SearchResults.css'
 
-export default function SearchResults({ results, submitSearch }) {
+export default function SearchResults({ results, submitSearch, page, setPage }) {
 
-    const [page, setPage] = useState(1)
+
     const [resetIcon, setResetIcon] = useState(true)
 
     async function saveImage(imageUrl) {
@@ -17,7 +17,6 @@ export default function SearchResults({ results, submitSearch }) {
         submitSearch(undefined, page)
         setResetIcon(!resetIcon)
         document.documentElement.scrollTop = 0;
-
     }
 
     function handleNext() {

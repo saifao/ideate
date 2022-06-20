@@ -28,3 +28,9 @@
 .project-list-items>button:hover {
     background-color: red;
 }
+
+@media (max-width: 500px) {
+    .project-list-header {
+        padding-bottom: 10px;
+    }
+}
